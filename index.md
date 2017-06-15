@@ -12,7 +12,7 @@ Verano 2017
 
 ## Objetivo del curso
 
-+ El alumno conocerá el sistema de virtualización VMware Workstation y aprenderá como instalar el software en GNU/Linux.
++ El alumno conocerá el sistema de virtualización VMware Workstation y aprenderá como instalar el *software* en GNU/Linux.
 
 + También aprenderá a manejar, importar y exportar máquinas virtuales, así como convertir un equipo existente a una máquina virtual compatible con los productos de VMware.
 
@@ -35,9 +35,9 @@ Verano 2017
 2. Introducción a VMware Workstation
 
     a. Diferencias entre VMware Workstation y otros productos de VMware
-    b. Requerimientos de hardware y software en el host
+    b. Requerimientos de *hardware* y *software* en el *host*
     c. Sistemas operativos soportados en máquinas virtuales
-    d. Dispositivos de hardware presentados a las máquinas virtuales
+    d. Dispositivos de *hardware* presentados a las máquinas virtuales
 
 --------
 
@@ -45,9 +45,9 @@ Verano 2017
 
 3. Instalación de VMware Workstation
 
-    a. Descarga del software del sitio My VMware
-    b. Instalación del software en GNU/Linux
-    c. Instalación del software en Windows
+    a. Descarga del *software* del sitio My VMware
+    b. Instalación del *software* en GNU/Linux
+    c. Instalación del *software* en Windows
     d. Obtención e instalación de la licencia de prueba
 
 --------
@@ -104,8 +104,8 @@ Verano 2017
 
 8. Convertir un equipo existente en una máquina virtual de VMware
 
-    a. Requisitos de software y hardware
-    b. Descarga del software del sitio My VMware
+    a. Requisitos de *software* y *hardware*
+    b. Descarga del *software* del sitio My VMware
     c. Instalación de VMware vCenter Converter Standalone
     d. Seleccionar origen y destino para la conversión
     e. Verificar vHardware antes de iniciar la máquina virtual
@@ -269,7 +269,7 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 
 --------
 
-### b. Requerimientos de hardware y software en el host
+### b. Requerimientos de *hardware* y *software* en el *host*
 
 ...
 
@@ -281,7 +281,7 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 
 --------
 
-### d. Dispositivos de hardware presentados a las máquinas virtuales
+### d. Dispositivos de *hardware* presentados a las máquinas virtuales
 
 ...
 
@@ -291,19 +291,19 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 
 --------
 
-### a. Descarga del software del sitio My VMware
+### a. Descarga del *software* del sitio My VMware
 
 ...
 
 --------
 
-### b. Instalación del software en GNU/Linux
+### b. Instalación del *software* en GNU/Linux
 
 ...
 
 --------
 
-### c. Instalación del software en Windows
+### c. Instalación del *software* en Windows
 
 ...
 
@@ -458,13 +458,13 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 --------
 
 
-### a. Requisitos de software y hardware
+### a. Requisitos de *software* y *hardware*
 
 ...
 
 --------
 
-### b. Descarga del software del sitio My VMware
+### b. Descarga del *software* del sitio My VMware
 
 ...
 
