@@ -265,25 +265,67 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 
 ### a. Diferencias entre VMware Workstation y otros productos de VMware
 
-...
+| Característica	| **VMware Player**	| **VMware Workstation**	| **VMware Fusion**	| **VMware ESXi/vSphere**	|
+|:---------------------:|:---------------------:|:-----------------------------:|:---------------------:|:-----------------------------:|
+| **Segmento**		| Uso básico		| Uso profesional		| Uso profesional	| Uso en servidores	|
+| **Tipo**		| Tipo 2: *Hosted*	| Tipo 2: *Hosted*		| Tipo 2: *Hosted*	| Tipo 1: *Bare-Metal*	|
+| **Licencia**		| Gratuita		| ＄＄				| ＄＄			| ＄＄＄＄＄ *		|
+| **Sistema Operativo**	| Linux, Windows, <br/> MacOS X | Linux, Windows	| MacOS X		| Nativo		|
+| **MV simultaneas**	| 1			| Muchas			| Muchas		| ∞ MUCHAS		|
+| **Snapshots**		| ✘			| ✔				| ✔			| ✔			|
+| **vNetwork Editor**	| ✘			| ✔				| ✔			| ✔			|
+| **Conexión a ESXi/vSphere**	| ✘		| ✔				| ✔			| ✔			|
+| **CLI**		| ✘			| ✔ (`vmrun`, VIX)		| ✔			| ✔ (VIX, `esxcli`, PowerCLI)	|
 
 --------
 
 ### b. Requerimientos de *hardware* y *software* en el *host*
 
-...
+De acuerdo a la documentación de VMware los requerimientos del sistema para Workstation Pro 12 son:
+
+| Elemento | Descripción |
+|:--------:|:-----------:|
+| Procesador	| Arquitectura de 64 bits con extensiones de virtualización	|
+| Sistema operativo	| GNU/Linux de 64 bits	|
+| Memoria RAM	| Mínimo: 1 GB, Recomendado: 2 GB |
+| Disco Duro	| Mínimo 1 GB por cada máquina virtual <br/> Recomendado: 10 GB por máquina virtual |
+| Soporte para *Aero*	| 3 GB de RAM y GPU nVidia, ATI o superior |
+| Conexión a red	| Red cableada o inalámbrica	|
+| Audio del equipo	| Soporte ALSA instalado en el sistema operativo	|
 
 --------
 
 ### c. Sistemas operativos soportados en máquinas virtuales
 
-...
+| Sistema Operativo | Versiones |
+|:-----------------:|:---------:|
+| Debian GNU/Linux	| 8 … 4	|
+| CentOS GNU/Linux	| 7 … 4	|
+| RHEL/Oracle Enterprise Linux	| 7 … 4	|
+| Fedora GNU/Linux	| 16 … 24	|
+| Red Hat Enterprise Linux	| Atomic, 7 … 2.1	|
+| Red Hat Linux	| 9.0 … 6.2	|
+| openSUSE GNU/Linux	| 13.x … 10.x	|
+| SUSE Linux	| 10 … 7.3	|
+| Ubuntu Linux	| 17.04 … 5.04	|
+| FreeBSD	| 11 … 4	|
+| Mac OS X	| 10.12 … 10.5	|
+| Solaris	| 11 … 8	|
+| IBM OS/2 Warp	| 4.5.2, 4.0	|
+| Windows	| 10, 8.1, 8, 7, Vista, XP, …	|
+| Windows Server	| 2016, 2012 (R2), 2008 (R2), 2003, …	|
 
 --------
 
 ### d. Dispositivos de *hardware* presentados a las máquinas virtuales
 
-...
+El hipervisor presenta a cada máquina virtual una serie de dispositivos base de hardware:
+
++ Tarjeta madre de tipo Intel 440BX
++ Chipset NS338 SIO
++ Controlador Avanzado Programable de E/S 82093AA
++ BIOS Phoenix 4.0 Release 6 con VESA BIOS
++ Si el sistema operativo es de 32 bits, detectará un máximo de 3.5 GB de RAM
 
 --------------------------------------------------------------------------------
 
@@ -499,3 +541,7 @@ La mayoría del *software* de virtualización requiere que el CPU cuente con car
 + https://pubs.vmware.com/
 + [VMware - E6998 - Virtual Machines Lecture 1 - What is Virtualization? - Scott Devine](https://labs.vmware.com/download/105/ "")
 + [nixCraft - Linux: Find Out If CPU Support Intel VT and AMD-V Virtualization Support](https://www.cyberciti.biz/faq/linux-xen-vmware-kvm-intel-vt-amd-v-support/ "")
++ [VMware Workstation Pro Documentation](https://www.vmware.com/support/pubs/ws_pubs.html "")
++ [VMware Workstation Comparison](http://www.vmware.com/products/workstation.html#compare "")
++ [Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html "")
++ [VMware Compatibility Guide](http://www.vmware.com/resources/compatibility/search.php?deviceCategory=software "")
