@@ -536,9 +536,9 @@ El hipervisor presenta a cada máquina virtual una serie de dispositivos base de
 
 ## Referencias
 
-+ https://www.vmware.com/
-+ https://my.vmware.com/
-+ https://pubs.vmware.com/
++ [VMware Virtualization for Desktop, Server, Application, Public and Hybrid Clouds](https://www.vmware.com/ "")
++ [My VMware - Simplified Management for Products and Support](https://my.vmware.com/ "")
++ [VMware Documentation Portal](https://www.vmware.com/support/pubs/ "")
 + [VMware - E6998 - Virtual Machines Lecture 1 - What is Virtualization? - Scott Devine](https://labs.vmware.com/download/105/ "")
 + [nixCraft - Linux: Find Out If CPU Support Intel VT and AMD-V Virtualization Support](https://www.cyberciti.biz/faq/linux-xen-vmware-kvm-intel-vt-amd-v-support/ "")
 + [VMware Workstation Pro Documentation](https://www.vmware.com/support/pubs/ws_pubs.html "")
