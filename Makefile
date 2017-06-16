@@ -1,7 +1,7 @@
 HELL=/bin/bash
 
 PANDOC=pandoc
-PANDOC_ARGS= --standalone --email-obfuscation=references
+PANDOC_ARGS= --standalone --email-obfuscation=references --incremental
 PANDOC_INPUT=markdown
 PANDOC_OUTPUT=html5
 
@@ -14,7 +14,12 @@ HTML_HEADER=_header.html
 HTML_BEFORE=_container.html
 HTML_FOOTER=_footer.html
 
-build:	clean $(MARKDOWN_INPUT)
+.PHONY:	all clean
+
+all:	$(HTML_OUTPUT)
+	ls -lrt $(INPUT)*.html
+
+$(HTML_OUTPUT):	$(MARKDOWN_INPUT)
 	${PANDOC} --from ${PANDOC_INPUT} --to ${PANDOC_OUTPUT} \
 	  --section-divs --title-prefix $(HTML_TITLE) --css $(HTML_CSS_FILE) --include-in-header $(HTML_HEADER) --include-before-body $(HTML_BEFORE) --include-after-body $(HTML_FOOTER) \
 	  $(PANDOC_ARGS) --output ${HTML_OUTPUT} ${MARKDOWN_INPUT}
