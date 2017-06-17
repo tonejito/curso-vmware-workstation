@@ -47,8 +47,8 @@ Verano 2017
 
     a. Descarga del *software* del sitio My VMware
     b. Instalación del *software* en GNU/Linux
-    c. Instalación del *software* en Windows
-    d. Obtención e instalación de la licencia de prueba
+    c. Obtención e instalación de la licencia de prueba
+    d. Verificación de la correcta instalación del *software* en el equipo
 
 --------
 
@@ -335,25 +335,310 @@ El hipervisor presenta a cada máquina virtual una serie de dispositivos base de
 
 ### a. Descarga del *software* del sitio My VMware
 
-...
++ Abrir el sitio [My VMware](https://my.vmware.com/ ""), crear una cuenta e iniciar sesión
+
+![](img/images/03-001-MyVMware-login.png "My VMware Login")
+
+--------
+
++ Seleccionar la pestaña de **productos** y dar clic en **gratuitos y de prueba**
+
+![](img/images/03-002-MyVMware-Trial_and_Free.png "Trial and Free Products")
+
+--------
+
++ Ir a la sección de **evaluación de productos**, después a **productos de escritorio** y dar clic en **[Workstation for Linux](http://www.vmware.com/products/workstation-for-linux.html#compare "")**
+
+![](img/images/03-003-MyVMware-Evaluate.png "")
+
+![](img/images/03-004-MyVMware-Products_Personal_Desktop.png "")
+
+--------
+
++ Dar clic en el botón de descarga para [Workstation Player](http://www.vmware.com/go/tryplayerpro-linux-64 "") o [Workstation Pro](http://www.vmware.com/go/tryworkstation-linux-64 ""):
+
+![](img/images/03-005-MyVMware-Workstation_Player_Pro.png "")
+
+--------
+
++ Aparecerá la confirmación de descarga del producto seleccionado:
+
+![](img/images/03-006-VMware-Player_bundle.png "")
+![](img/images/03-007-VMware-Workstation_bundle.png "")
 
 --------
 
 ### b. Instalación del *software* en GNU/Linux
 
-...
++ Instalar las dependencias en el sistema operativo
+
+```sh
+# aptitude --assume-yes install build-essential dkms linux-headers-amd64 linux-headers-$(uname -r)+M
+```
 
 --------
 
-### c. Instalación del *software* en Windows
++ Cambiar los permisos y ejecutar el script `bundle` para instalar el *software*
 
-...
+![](img/images/03-011-VMware-bundles_downloaded.png "")
+
+```sh
+# chmod +x *.bundle
+# ls -lA
+total 597280
+-rwxr-xr-x  1 tonejito users 134207691 Jun  1 00:00 VMware-Player-12.5.6-5528349.x86_64.bundle
+-rwxr-xr-x  1 tonejito users 477390563 Jun  1 00:00 VMware-Workstation-Full-12.5.6-5528349.x86_64.bundle
+```
+
++ Ejecutar el instalador con permisos administrativos
+
+```sh
+# ./VMware-Workstation-Full-12.5.6-5528349.x86_64.bundle
+```
 
 --------
 
-### d. Obtención e instalación de la licencia de prueba
++ Aparecerá la ventana que muestra el acuerdo de licencia para **VMware Workstation**, es necesario aceptar los términos para continuar
 
+![](img/images/03-012-VMware_Installer_VMware_Workstation.png "")
+
+--------
+
++ También es necesario aceptar los términos de la licencia de **VMware OVF Tool Component for Linux** para continuar
+
+![](img/images/03-013-VMware_Installer-VMware_OVF.png "")
+
+--------
+
++ El instalador también pregunta si se desea verificar si existen actualizaciones al iniciar la aplicación
+
+![](img/images/03-014-VMware_Installer-Check_for_updates.png "")
+
+--------
+
++ El instalador puede enviar estadísticas anónimas a VMware para ayudar al desarrollo de nuevas versiones del *software*
+
+![](img/images/03-015-VMware_Installer-Send_anonymous_data.png "")
+
+--------
+
++ Existe una característica de **VMware Workstation** llamda *Workstation Server* que sirve para compartir máquinas virtuales con otros usuarios. El instalador pregunta por la cuenta que será asociada a esta funcionalidad
+
+![](img/images/03-016-VMware_Installer-Workstation_Server_user.png "")
+
+--------
+
++ Es necesario especificar una ruta para que *Workstation Server* guarde las máquinas virtuales compartidas
+
+![](img/images/03-017-VMware_Installer-Shared_VMs_directory.png "")
+
+--------
+
++ *Workstation Server* levanta un puerto en escucha para el acceso web. El valor por defecto es `443`
+
+![](img/images/03-018-VMware_Installer-Workstation_Server_https_port.png "")
+
+--------
+
++ Es posible introducir el código de licencia al momento de la instalación o después
+
+![](img/images/03-019-VMware_Installer-License_key.png "")
+
+--------
+
++ Con todos los datos recabados el instalador se encuentra listo para empezar
+
+![](img/images/03-020-VMware_Installer-Ready_to_install.png "")
+
+--------
+
++ Después de instalar todos los componentes de *software* se muestra el mensaje de éxito
+
+![](img/images/03-021-VMware_Installer-Installation_successful.png "")
+
+--------
+
++ Al iniciar la primera vez `vmware` se muestra el cuadro de diálogo que pide compilar los módulos del *kernel*
+
+![](img/images/03-023-VMware_Kernel_Module_Updater-Compile_and_install_modules.png "")
+
++ Si no se tienen las dependencias instaladas, se mostrará el siguiente cuadro de diálogo
+
+![](img/images/03-022-VMware_Kernel_Module_Updater-gcc.png "")
+
+--------
+
++ Al instalar los módulos el cuadro de diálogo muestra el progreso
+
+![](img/images/03-024-VMware_Kernel_Module_Updater-Progress.png "")
+
+--------
+
++ También se puede ver el progreso en la terminal
+
+<!-- ![](img/images/03-025-VMware_Kernel_Module_Updater-Console_output.png "") -->
+
+```sh
+$ vmware
 ...
+Stopping VMware services:
+   VMware Authentication Daemon                                        done
+   VM communication interface socket family                            done
+   Virtual machine communication interface                             done
+   Virtual machine monitor                                             done
+   Blocking file system                                                done
+...
+Using kernel build system.
+/usr/bin/make -C /lib/modules/3.16.0-4-amd64/build/include/.. SUBDIRS=$PWD SRCROOT=$PWD/. \
+  MODULEBUILDDIR= modules
+make[1]: Entering directory '/usr/src/linux-headers-3.16.0-4-amd64'
+...
+Starting VMware services:
+   Virtual machine monitor                                             done
+   Virtual machine communication interface                             done
+   VM communication interface socket family                            done
+   Blocking file system                                                done
+   Virtual ethernet                                                    done
+   VMware Authentication Daemon                                        done
+   Shared Memory Available                                             done
+
+```
+
+--------
+
+### c. Obtención e instalación de la licencia de prueba
+
++ Después de instalar los módulos del *kernel* se inicia **VMware Workstation**
+
+![](img/images/03-026-Launch-VMware_Workstation.png "")
+
+--------
+
++ Es necesario ingresar la clave de licencia para utilizar el producto, o bien se puede introducir una dirección de correo para activar la versión de prueba por 30 días
+
+![](img/images/03-027-VMware_License_Tool-Enter_license.png "")
+
+--------
+
++ Después de aceptar el cuadro de diálogo anterior, el sistema pide la contraseña de administrador para aplicar los cambios utilizando `licenseTool`
+
+![](img/images/03-027-VMware_License_Tool-Enter_root_password.png "")
+
+--------
+
++ Una vez que se ha aplicado la licencia al producto, se muestra el mensaje de bienvenida
+
+![](img/images/03-028-VMware_Workstation-Welcome_message.png "")
+
+--------
+
++ Al aceptar el mensaje se muestra la interfaz principal de **VMware Workstation**
+
+![](img/images/03-029-VMware_Workstation-First_run.png "")
+
+--------
+
+### d. Verificación de la correcta instalación del *software* en el equipo
+
++ Para verificar que el producto esté instalado correctamente hay que comprobar la versión del *software*
+
+![](img/images/03-030-VMware_Workstation-About_menu.png "")
+![](img/images/03-031-VMware_Workstation-About_dialog.png "")
+
+--------
+
++ Es recomendable revisar si hay actualizaciones antes de utilizar el programa
+
+![](img/images/03-032-VMware_Workstation-Updates_menu.png "")
+![](img/images/03-033-VMware_Workstation-Updates_dialog.png "")
+![](img/images/03-034-VMware_Workstation-No_updates_available.png "")
+
+--------
+
++ Desde línea de comandos se puede verificar el estado de los servicios de VMware
+
+```sh
+# systemctl list-units | grep -i VMware
+vmware.service                       loaded active running    LSB: This service starts and stops VMware services
+vmware-workstation-server.service    loaded active running    LSB: This services starts and stops the Workstation as a Server daemon.
+vmware-USBArbitrator.service         loaded active running    LSB: This services starts and stops the USB Arbitrator.
+```
+
+--------
+
++ Para listar el estado de cada servicio utilizar `systemctl status <servicio>`
+
+```sh
+# systemctl status vmware.service
+
+# systemctl status vmware-workstation-server.service
+
+# systemctl status vmware-USBArbitrator.service
+```
+
+--------
+
++ Verificar los puertos en escucha con `netstat`
+
+```sh
+# netstat -ntulp | grep -i VMware
+tcp     0    0  0.0.0.0:443         0.0.0.0:*        LISTEN     1024/vmware-hostd
+tcp     0    0  0.0.0.0:902         0.0.0.0:*        LISTEN     2048/vmware-authdla
+tcp     0    0  127.0.0.1:8307      0.0.0.0:*        LISTEN     1024/vmware-hostd
+tcp6    0    0  :::443              :::*             LISTEN     1024/vmware-hostd
+tcp6    0    0  :::902              :::*             LISTEN     2048/vmware-authdla
+tcp6    0    0  ::1:8307            :::*             LISTEN     1024/vmware-hostd
+```
+
+--------
+
++ Se puede utilizar un navegador para verificar el puerto asignado a **Workstation Server**
++ Observar el emisor del certificado
+
+![](img/images/03-035-Firefox-localhost.png "")
+
+<!--
+![](img/images/03-036-Firefox-localhost_add_exception.png "")
+![](img/images/03-037-Firefox-localhost_loaded.png "")
+-->
+
+--------
+
++ Para comprobar que el *software* corra sin problemas, es necesario importar una imagen OVA de prueba
+
++ Abrir la imagen `photon-custom-hw11-1.0-62c543d.ova` en **VMware Workstation**
+
+![](img/images/03-038-VMware_Workstation-Open_OVA.png "")
+
+--------
+
++ Se abre un cuadro de diálogo donde se asigna un nombre a la máquina virtual que se va a importar y la ubicación donde se guardará
+
+![](img/images/03-039-VMware_Workstation-Import_VM.png "")
+
+--------
+
++ Algunas máquinas tienen una licencia que debe ser aceptada antes de poder utilizarlas
+
+![](img/images/03-040-VMware_Workstation-VM_license.png "")
+
+--------
+
+* Una vez importada la máquina virtual, presionar el botón para iniciar la ejecución
+
+![](img/images/03-041-VMware_Workstation-Start_VM.png "")
+
+--------
+
++ Aparecerá una pantalla de inicio del sistema operativo (*splashscreen*)
+
+![](img/images/03-042-VMware_Workstation-VM_booting.png "")
+
+--------
+
+* Una vez que la máquina virtual termine de iniciar, ingresar al equipo, asignar una nueva contraseña y verificar la conectividad de red
+
+![](img/images/03-043-VMware_Workstation-VM_login.png "vmware / changeme")
 
 --------------------------------------------------------------------------------
 
@@ -545,3 +830,4 @@ El hipervisor presenta a cada máquina virtual una serie de dispositivos base de
 + [VMware Workstation Comparison](http://www.vmware.com/products/workstation.html#compare "")
 + [Guest Operating System Installation Guide](http://partnerweb.vmware.com/GOSIG/home.html "")
 + [VMware Compatibility Guide](http://www.vmware.com/resources/compatibility/search.php?deviceCategory=software "")
++ [Running Photon OS on vSphere](https://github.com/vmware/photon/wiki/Running-Photon-OS-on-vSphere "")
