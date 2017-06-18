@@ -434,9 +434,9 @@ total 597280
 
 --------
 
-+ *Workstation Server* levanta un puerto en escucha para el acceso web. El valor por defecto es `443`
++ *Workstation Server* levanta un puerto en escucha para el acceso web
 
-![](img/images/03-018-VMware_Installer-Workstation_Server_https_port.png "")
+![](img/images/03-018-VMware_Installer-Workstation_Server_https_port.png "El valor por defecto es 443")
 
 --------
 
